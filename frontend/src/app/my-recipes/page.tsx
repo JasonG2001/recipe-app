@@ -9,13 +9,14 @@ import {
 import { NavigationBar } from "higher-order-components/NavigationBar";
 import { PageContentWrapper } from "higher-order-components/PageContentWrapper";
 import { MyRecipesForm } from "./components/MyRecipesForm";
+import { Separator } from "components/separator/Separator";
 
 export default function MyRecipes() {
   return (
     <div>
       <NavigationBar />
-      <PageContentWrapper>
-        <Card>
+      <PageContentWrapper className="w-1/2">
+        <Card className="px-10">
           <CardHeader>
             <CardTitle className="text-center text-2xl">
               Contribute to the community
@@ -24,7 +25,8 @@ export default function MyRecipes() {
               Tell us your &apos;secret&apos; recipes
             </CardDescription>
           </CardHeader>
-          <CardContent className="grid grid-cols-2 gap-4">
+          <Separator />
+          <CardContent>
             <MyRecipesForm />
           </CardContent>
         </Card>
