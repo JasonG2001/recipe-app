@@ -28,7 +28,7 @@ export const NavigationBar = forwardRef<
           alt="logo"
           className="my-2"
         />
-        <NavigationMenuList className="w-[600px]">
+        <NavigationMenuList className="w-[800px]">
           {navigationIds.map((navId) => (
             <NavigationMenuItem key={navId}>
               <NavigationLink navigationId={navId} />

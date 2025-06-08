@@ -26,7 +26,15 @@ export const NavigationLink = forwardRef<HTMLDivElement, NavigationLinkProps>(
         )}
         ref={ref}
       >
-        <Link href={`/${navigationId}`}>{navigations[navigationId]}</Link>
+        <Link
+          href={`/${navigationId}`}
+          className="flex flex-col items-center justify-center group w-32"
+        >
+          <div>{navigations[navigationId].title}</div>
+          <div className="text-xs hidden group-hover:block text-center">
+            {navigations[navigationId].subTitle}
+          </div>
+        </Link>
       </div>
     );
   }
