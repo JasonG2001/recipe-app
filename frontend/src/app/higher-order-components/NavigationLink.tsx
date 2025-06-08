@@ -19,8 +19,9 @@ export const NavigationLink = forwardRef<HTMLDivElement, NavigationLinkProps>(
     return (
       <div
         className={cn(
-          "py-2 px-4 rounded-md",
-          curNavigationId === navigationId ? "bg-primary" : "",
+          "py-4 px-8 rounded-md h-full",
+          curNavigationId === navigationId &&
+            "bg-gradient-to-b from-white via-lime-200 to-white",
           className
         )}
         ref={ref}

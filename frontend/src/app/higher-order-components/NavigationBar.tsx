@@ -20,15 +20,22 @@ export const NavigationBar = forwardRef<
 >(({ className }, ref) => {
   return (
     <>
-      <NavigationMenu className={cn("gap-10", className)} ref={ref}>
-        <Image width={150} height={1} src="/images/logo.png" alt="logo" />
-        <NavigationMenuList className="w-[500px]">
+      <NavigationMenu className={cn("gap-28", className)} ref={ref}>
+        <Image
+          width={150}
+          height={1}
+          src="/images/logo.png"
+          alt="logo"
+          className="my-2"
+        />
+        <NavigationMenuList className="w-[600px]">
           {navigationIds.map((navId) => (
             <NavigationMenuItem key={navId}>
               <NavigationLink navigationId={navId} />
             </NavigationMenuItem>
           ))}
         </NavigationMenuList>
+        <div className="w-[150px] h-20" />
       </NavigationMenu>
       <Separator />
     </>
