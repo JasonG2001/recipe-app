@@ -27,23 +27,21 @@ export const DescriptionInputWithLabel = <T extends FieldValues>({
   name,
   control,
   ...props
-}: DescriptionInputWithLabelProps<T>) => {
-  return (
-    <FormField
-      name={name}
-      control={control}
-      render={({ field }) => (
-        <FormItem className={cn("flex flex-col gap-3", className)}>
-          <DescriptionInputWithLabelSubComponent
-            label={label}
-            field={field}
-            {...props}
-          />
-        </FormItem>
-      )}
-    />
-  );
-};
+}: DescriptionInputWithLabelProps<T>) => (
+  <FormField
+    name={name}
+    control={control}
+    render={({ field }) => (
+      <FormItem className={cn("flex flex-col gap-3", className)}>
+        <DescriptionInputWithLabelSubComponent
+          label={label}
+          field={field}
+          {...props}
+        />
+      </FormItem>
+    )}
+  />
+);
 
 type DescriptionInputWithLabelSubComponentProps<
   TFieldValues extends FieldValues,
