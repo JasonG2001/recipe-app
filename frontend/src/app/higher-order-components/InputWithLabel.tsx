@@ -27,19 +27,17 @@ export const InputWithLabel = <T extends FieldValues>({
   control,
   name,
   ...props
-}: InputWithLabelProps<T>) => {
-  return (
-    <FormField
-      name={name}
-      control={control}
-      render={({ field }) => (
-        <FormItem className={cn("flex flex-col gap-3", className)}>
-          <InputWithLabelSubComponent field={field} label={label} {...props} />
-        </FormItem>
-      )}
-    />
-  );
-};
+}: InputWithLabelProps<T>) => (
+  <FormField
+    name={name}
+    control={control}
+    render={({ field }) => (
+      <FormItem className={cn("flex flex-col gap-3", className)}>
+        <InputWithLabelSubComponent field={field} label={label} {...props} />
+      </FormItem>
+    )}
+  />
+);
 
 type InputWithLabelSubComponentProps<
   TFieldValues extends FieldValues,

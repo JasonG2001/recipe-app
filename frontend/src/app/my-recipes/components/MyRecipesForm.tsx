@@ -1,10 +1,13 @@
 "use client";
 
-import { DescriptionInputWithLabel } from "higher-order-components/DescriptionInputWithLabel";
-import { InputWithLabel } from "higher-order-components/InputWithLabel";
-import { UserRecipeValidationType } from "my-recipes/validation";
+import {
+  userRecipeSchema,
+  UserRecipeValidationType,
+} from "my-recipes/validation";
 import { useCallback } from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { MyRecipesFormContent } from "./MyRecipesFormContent";
 
 export const MyRecipesForm = () => {
   const form = useForm<UserRecipeValidationType>({
@@ -12,8 +15,9 @@ export const MyRecipesForm = () => {
     defaultValues: {
       name: "",
       description: "",
-      ingredients: [],
+      ingredients: [{ name: "", quantity: 0, unit: "g" }],
     },
+    resolver: zodResolver(userRecipeSchema),
   });
 
   const onSubmit = useCallback((userRecipe: UserRecipeValidationType) => {
@@ -26,19 +30,7 @@ export const MyRecipesForm = () => {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col gap-6 my-6"
       >
-        <InputWithLabel
-          name="name"
-          label="Name of food"
-          className="w-1/2"
-          placeholder="eg. Spaghetti Carbonara"
-          control={form.control}
-        />
-        <DescriptionInputWithLabel
-          name="description"
-          label="Description"
-          placeholder="A few sentences describing the food, its origin, and any other interesting facts."
-          control={form.control}
-        />
+        <MyRecipesFormContent />
       </form>
     </FormProvider>
   );
